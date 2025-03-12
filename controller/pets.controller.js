@@ -44,8 +44,10 @@ Request Type: GET
 router.get("/view-all", validateSession, async (req, res) => {
   try {
     // 1. create a variable to store the response using the Model and Find method
+    const pets = await Pet.find({});
 
-    const pets = await Pet.find().populate("ownerId", "firstname lastname");
+    //     const pets = await Pet.find().populate("ownerId", "firstname lastname");
+
 
     // 2. add to the res.json the variable (pets)
 
