@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const userController = require("./controller/user.controller");
 
 const petController = require("./controller/pets.controller");
@@ -12,6 +13,9 @@ db.on("error", console.error.bind(console, "Connection error"));
 
 // ! This (express.json()) will allow us to send a payload or request object to our server and our routes will be able to parse it.
 app.use(express.json());
+
+// ! This (cors()) will allow us to make requests from our frontend to our backend.
+app.use(cors());
 
 // *** Controller Routes ***
 
